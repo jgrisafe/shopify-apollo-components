@@ -1,3 +1,15 @@
+Couldn't generate AcceptsMarketing: Syntax Error: Expected $, found )
+Couldn't generate Addresses: Syntax Error: Expected Name, found }
+Couldn't generate CreatedAt: Syntax Error: Expected $, found )
+Couldn't generate DefaultAddress: Syntax Error: Expected $, found )
+Couldn't generate DisplayName: Syntax Error: Expected $, found )
+Couldn't generate Email: Syntax Error: Expected $, found )
+Couldn't generate FirstName: Syntax Error: Expected $, found )
+Couldn't generate Id: Syntax Error: Expected $, found )
+Couldn't generate LastName: Syntax Error: Expected $, found )
+Couldn't generate Orders: Syntax Error: Expected Name, found }
+Couldn't generate Phone: Syntax Error: Expected $, found )
+Couldn't generate UpdatedAt: Syntax Error: Expected $, found )
 Couldn't generate Articles: Syntax Error: Expected Name, found }
 Couldn't generate Blogs: Syntax Error: Expected Name, found }
 Couldn't generate CardVaultUrl: Syntax Error: Expected $, found )

@@ -3,19 +3,26 @@
 import 'babel-polyfill'
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
+
 import RootProvider from '../shared/root-provider'
 import { ProductByHandle } from '../../dist/index'
+import ProductTable from '../shared/components/ProductTable'
 
 const root = document.getElementById('root')
 
 if (!root) throw new Error('React root element not found.')
 
+// grab a random product handle from the shopify sample graphql store
 const handles = ['snare-boot', 'neptune-boot', 'arena-zip-boot', 'pin-boot', 'hanra-shirt']
 const handle = handles[Math.floor(Math.random() * handles.length)]
 
+/**
+ * The RootProvider component (or similar implementation) is necessary to use any other components
+ * within the shopify-apollo-components library. It wraps the application in an ApolloProvider component
+ * and rigs it up with necessary details about the storefront (uri, storefrom access token)
+ */
 ReactDOM.render(
   <RootProvider
-    s
     uri="https://graphql.myshopify.com/api/graphql"
     accessToken="078bc5caa0ddebfa89cccb4a1baa1f5c"
   >
@@ -26,22 +33,7 @@ ReactDOM.render(
           return (
             <div>
               <h1>Product Details for {handle}</h1>
-              <table cellPadding="10" border="1px solid">
-                <tbody>
-                  <tr>
-                    <th>Field</th>
-                    <th>Value</th>
-                  </tr>
-                  {
-                    Object.keys(productByHandle).map((key, index) => (
-                      <tr key={`product-detail-row-${index}`}>
-                        <td>{key}</td>
-                        <td>{productByHandle[key].toString().substring(0, 50)}</td>
-                      </tr>
-                    ))
-                  }
-                </tbody>
-              </table>
+              <ProductTable product={productByHandle} />
             </div>
           )
         }}
