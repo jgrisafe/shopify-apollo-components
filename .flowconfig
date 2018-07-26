@@ -1,0 +1,17 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/webpack-cli/.*
+<PROJECT_ROOT>/node_modules/findup/.*
+<PROJECT_ROOT>/node_modules/protobufjs-no-cli/.*
+__dirname
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+suppress_comment= \\(.\\|\n\\)*\\flow-disable-next-line
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+
+[strict]

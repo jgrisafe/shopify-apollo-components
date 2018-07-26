@@ -1,0 +1,77 @@
+{
+  "name": "shopify-apollo-components",
+  "version": "0.0.1",
+  "description": "Wrappers around the react-apollo query & mutation components for the shopify graphql api",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "yarn generate &&  yarn transpile && yarn flow-copy",
+    "generate": "yarn clean && BABEL_ENV=es5 babel src --ignore src/index,src/__mocks__ -d lib && yarn copy-index && node lib/script",
+    "transpile": "yarn babelify && yarn flow-copy",
+    "babelify": "rimraf module && babel lib -d module",
+    "flow-copy": "flow-copy-source -v lib module",
+    "babel-node": "BABEL_ENV=es5 babel src -d lib",
+    "copy-index": "mkdir -p lib && cp src/index.js lib/",
+    "clean": "rimraf src/debug && rimraf lib && rimraf module"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgrisafe/shopify-apollo-components.git"
+  },
+  "keywords": [
+    "shopify",
+    "graphql",
+    "apollo",
+    "react-apollo"
+  ],
+  "author": "Joey Grisafe <jgrisafe@classy.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgrisafe/shopify-apollo-components/issues"
+  },
+  "homepage": "https://github.com/jgrisafe/shopify-apollo-components#readme",
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.2.6",
+    "apollo-client": "^2.3.7",
+    "apollo-link-context": "^1.0.8",
+    "apollo-link-http": "^1.5.4",
+    "babel-polyfill": "^6.26.0",
+    "graphql": "^0.13.2",
+    "react": "^16.4.1",
+    "react-apollo": "^2.1.9",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-emotion": "^9.2.6",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-shopify": "^16.2.0",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-shopify": "^19.0.0",
+    "flow-bin": "^0.72.0",
+    "flow-copy-source": "^1.3.0",
+    "flow-typed": "^2.4.0",
+    "graphql-tag": "^2.9.2",
+    "stylelint-config-prettier": "^3.0.4",
+    "stylelint-config-shopify": "^5.0.0"
+  }
+}

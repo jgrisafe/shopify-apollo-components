@@ -1,0 +1,69 @@
+{
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "plugins": [
+    "flowtype"
+  ],
+  "rules": {
+    "function-paren-newline": ["error", "consistent"],
+    "comma-dangle": [0, "error"],
+    "babel/no-invalid-this": 0,
+    "import/no-anonymous-default-export": 0,
+    "import/no-unresolved": ["error", {"ignore": ["^jquery"]}],
+    "no-alert": 0,
+    "no-console": 0,
+    "no-new": 0,
+    "node/shebang": 0,
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": [2, "never"],
+    "flowtype/require-valid-file-annotation": [2, "always"],
+    "react/jsx-filename-extension": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-unexpected-multiline": 2,
+    "no-use-before-define": ["error", { "functions": false }],
+    "no-unused-vars": ["error", { "args": "none" }],
+    "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
+    "react/sort-comp": [
+      2,
+      {
+        "order": ["type-annotations", "static-methods", "lifecycle", "everything-else", "render"],
+        "groups": {
+          "lifecycle": [
+            "displayName",
+            "propTypes",
+            "defaultProps",
+            "contextTypes",
+            "childContextTypes",
+            "mixins",
+            "statics",
+            "state",
+            "constructor",
+            "getDefaultProps",
+            "getInitialState",
+            "getChildContext",
+            "componentWillMount",
+            "componentDidMount",
+            "componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "componentWillUpdate",
+            "componentDidUpdate",
+            "componentWillUnmount"
+          ]
+        }
+      }
+    ]
+  },
+  "globals": {
+    "document": true,
+    "window": true,
+    "Shopify": true,
+    "theme": true,
+    "console": true
+  }
+}
