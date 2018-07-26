@@ -51,16 +51,17 @@ export default RootProvider
 import React from 'react'
 import { ProductByHandle } from 'shopify-apollo-components';
 
-const ProductView = (props) => {
+
+const ProductView = ({ handle }) => {
   return (
     <ProductByHandle handle={handle}>
        {({ loading, data }) => {
            if (loading) return 'product loading...'
-           const { shop: { productByHandle } } = data
+           const { shop: { productByHandle: product } } = data
            return (
              <div>
-               <h1>Product Details for {handle}</h1>
-               <ProductTable product={productByHandle} />
+               <h1>Product Details for {product.title}</h1>
+               {/* Build your product view */}
              </div>
            )
          }}
