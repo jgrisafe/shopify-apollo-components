@@ -35,7 +35,7 @@ export default function main(outputDir: string) {
 
       const mappedType = mapQueryToType(query, OPERATION_TYPES.QUERY)
 
-      if (mappedType) generateComponentFile(mappedType, outputDir)
+      if (mappedType) generateComponentFile(queryObject.name.toLowerCase(), mappedType, outputDir)
     })
   }
 }

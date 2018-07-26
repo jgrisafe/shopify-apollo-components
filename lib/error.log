@@ -1,0 +1,17 @@
+Couldn't generate Articles: Syntax Error: Expected Name, found }
+Couldn't generate Blogs: Syntax Error: Expected Name, found }
+Couldn't generate CardVaultUrl: Syntax Error: Expected $, found )
+Couldn't generate Collections: Syntax Error: Expected Name, found }
+Couldn't generate CurrencyCode: Syntax Error: Expected $, found )
+Couldn't generate Description: Syntax Error: Expected $, found )
+Couldn't generate MoneyFormat: Syntax Error: Expected $, found )
+Couldn't generate Name: Syntax Error: Expected $, found )
+Couldn't generate PaymentSettings: Syntax Error: Expected $, found )
+Couldn't generate PrimaryDomain: Syntax Error: Expected $, found )
+Couldn't generate PrivacyPolicy: Syntax Error: Expected $, found )
+Couldn't generate ProductTypes: Syntax Error: Expected Name, found }
+Couldn't generate Products: Syntax Error: Expected Name, found }
+Couldn't generate RefundPolicy: Syntax Error: Expected $, found )
+Couldn't generate ShipsToCountries: Syntax Error: Expected $, found )
+Couldn't generate ShopifyPaymentsAccountId: Syntax Error: Expected $, found )
+Couldn't generate TermsOfService: Syntax Error: Expected $, found )

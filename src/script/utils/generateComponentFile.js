@@ -10,11 +10,11 @@ import { OPERATION_TYPES } from '../constants'
 
 import type { Query } from '../flow-types/index'
 
-export default function generateComponentFile(query: Query, outputDir: string) {
+export default function generateComponentFile(rootQuery, query: Query, outputDir: string) {
   const componentName = createComponentName(query)
   const args = query.args.map(arg => arg.name)
   const argList = args.join(', ')
-  const queryString = createGraphqlQuery(query, OPERATION_TYPES.QUERY)
+  const queryString = createGraphqlQuery(rootQuery, query, OPERATION_TYPES.QUERY)
 
   const filePath = path.join(outputDir, `./components/${componentName}.js`)
   const indexPath = path.join(outputDir, './index.js')
