@@ -30,7 +30,7 @@
     "url": "https://github.com/jgrisafe/shopify-apollo-components/issues"
   },
   "homepage": "https://github.com/jgrisafe/shopify-apollo-components#readme",
-  "dependencies": {
+  "peerDependencies": {
     "apollo-cache-inmemory": "^1.2.6",
     "apollo-client": "^2.3.7",
     "apollo-link-context": "^1.0.8",
