@@ -13,44 +13,35 @@ Wrappers around the react-apollo Query components for the shopify storefront api
   * accessToken: your storfront-access-token (creat via private app) 
 
 
-```js
+```jsx harmony
+// @flow
 
+import 'babel-polyfill'
 import React from 'react'
-import { ApolloClient } from 'apollo-client'
-import { createHttpLink } from 'apollo-link-http'
-import { setContext } from 'apollo-link-context'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloProvider } from 'react-apollo'
+import ReactDOM from 'react-dom'
+import { RootProvider } from 'shopify-apollo-components'
 
-const creatClient = (uri, accessToken) => {
-  const middlewareLink = setContext(() => ({
-    headers: { 'X-Shopify-Storefront-Access-Token': accessToken }
-  }))
+const root = document.getElementById('app')
 
-  const httpLink = createHttpLink({ uri })
+if (!root) throw new Error('React root element not found.')
 
-  return new ApolloClient({
-    link: middlewareLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  })
-}
-
-const RootProvider = ({ accessToken, uri, children }) => (
-  <ApolloProvider client={creatClient(uri, accessToken)}>
-    {children}
-  </ApolloProvider>
+ReactDOM.render(
+  <Router>
+    <RootProvider
+      uri="https://vape-allegiance.myshopify.com/api/graphql"
+      accessToken="375d3adfc86edf78ab66f8900da074d5"
+    >
+      {/* your app here */}
+    </RootProvider>
+  </Router>, root
 )
-
-export default RootProvider
-
 ``` 
 
 ### 2. Use the components with render functions
 
-```js
+```jsx harmony
 import React from 'react'
 import { ProductByHandle } from 'shopify-apollo-components';
-
 
 const ProductView = ({ handle }) => {
   return (
@@ -70,9 +61,6 @@ const ProductView = ({ handle }) => {
 }
 
 export default ProductView
-
-
-
 ```
 
 ### 3. Sit back and relax

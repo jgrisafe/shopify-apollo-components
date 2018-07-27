@@ -4,7 +4,7 @@ import 'babel-polyfill'
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 
-import RootProvider from '../shared/root-provider'
+import RootProvider from '../../src/root-provider'
 import { ProductByHandle } from '../../dist/index'
 import ProductTable from '../shared/components/ProductTable'
 
