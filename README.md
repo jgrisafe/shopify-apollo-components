@@ -10,12 +10,10 @@ Wrappers around the react-apollo Query components for the shopify storefront api
 
 * wrap your application with the RootProvider component and pass it props:
   * uri: your storefront-api uri (https://your-store.myshopify.com/api/graphql)
-  * accessToken: your storfront-access-token (creat via private app) 
+  * accessToken: your storefront-access-token (created via private app) 
 
 
 ```jsx harmony
-// @flow
-
 import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
