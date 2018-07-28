@@ -9,9 +9,9 @@ const { Provider, Consumer }: React.createContext<any> = React.createContext()
 export const ProductProvider = ({ handle, children }: { handle: string, children: Object }) => (
   <ProductByHandle handle={handle}>
     {({ loading, data }) => {
-      const { shop: { productByHandle } } = data
+      const product = loading ? null : data.shop.productByHandle
       return (
-        <Provider value={{ product: productByHandle, loading }}>
+        <Provider value={{ product, loading }}>
           {children}
         </Provider>
       )

@@ -4,6 +4,10 @@ Wrappers around the react-apollo Query components for the shopify storefront api
 
 `yarn add shopify-apollo-components`
 
+## Examples
+`yarn basic-example`
+`yarn context-example`
+
 ## Usage
 
 ### 1. Add React-Apollo to the root of your application

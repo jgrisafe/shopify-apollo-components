@@ -12,7 +12,9 @@
     "babel-node": "BABEL_ENV=es5 babel src -d lib",
     "copy-index": "mkdir -p lib && cp src/index.js lib/",
     "clean": "./node_modules/.bin/rimraf src/debug && ./node_modules/bin/rimraf lib && ./node_modules/bin/rimraf dist",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "basic-example": "yarn start -- --app product-by-handle",
+    "context-example": "yarn start -- --app use-with-context"
   },
   "repository": {
     "type": "git",

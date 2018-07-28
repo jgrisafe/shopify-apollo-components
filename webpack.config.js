@@ -1,12 +1,11 @@
 // @flow
 
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
-  entry: `${__dirname}/examples/product-by-handle/index.js`,
+const config = exampleName => ({
+  entry: `${__dirname}/examples/${exampleName}/index.js`,
   output: {
-    path: `${__dirname}/examples/product-by-handle/dist`,
+    path: `${__dirname}/examples/${exampleName}/dist`,
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -30,15 +29,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${__dirname}/examples/product-by-handle/index.ejs`,
-      filename: `${__dirname}/examples/product-by-handle/dist/index.html`,
-      base: '/examples/product-by-handle/dist/'
+      template: `${__dirname}/examples/${exampleName}/index.ejs`,
+      filename: `${__dirname}/examples/${exampleName}/dist/index.html`,
+      base: `${__dirname}/examples/${exampleName}/dist/`
     })
   ],
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
   devServer: {
-    contentBase: './examples/product-by-handle/dist',
+    contentBase: `${__dirname}/examples/${exampleName}/dist`,
   }
-}
+})
+
+const exampleName = (process.argv[7] || 'product-by-handle')
+module.exports = config(exampleName)
