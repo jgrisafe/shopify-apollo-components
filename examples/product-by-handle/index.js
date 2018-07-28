@@ -18,8 +18,9 @@ const handle = handles[Math.floor(Math.random() * handles.length)]
 
 /**
  * The RootProvider component (or similar implementation) is necessary to use any other components
- * within the shopify-apollo-components library. It wraps the application in an ApolloProvider component
- * and rigs it up with necessary details about the storefront (uri, storefrom access token)
+ * within the shopify-apollo-components library. It wraps the application in an ApolloProvider
+ * component and rigs it up with necessary details about the storefront
+ * (uri, storefront access token)
  */
 ReactDOM.render(
   <RootProvider
@@ -40,6 +41,3 @@ ReactDOM.render(
     </ProductByHandle>
   </RootProvider>, root
 )
-
-window.slate = window.slate || {}
-window.theme = window.theme || {}

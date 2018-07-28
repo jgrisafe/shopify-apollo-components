@@ -61,4 +61,40 @@ const ProductView = ({ handle }) => {
 export default ProductView
 ```
 
-### 3. Sit back and relax
+### 3. Use react context at the root of your pages to get easy access to the page's product or collection without needing to access the url params
+### The context components
+```jsx harmony
+const { Provider, Consumer } = React.createContext()
+
+export const ProductProvider = ({ handle, children }) => (
+  <ProductByHandle handle={handle}>
+    {({ loading, data }) => {
+      const { shop: { productByHandle } } = data
+      return (
+        <Provider value={{ product: productByHandle, loading }}>
+          {children}
+        </Provider>
+      )
+    }}
+  </ProductByHandle>
+)
+
+export const ProductConsumer = Consumer
+
+```
+
+#### Use the Consumer anywhere nested under the Provider
+```jsx harmony
+<ProductProvider handle={handle}>
+  <ProductConsumer>
+    {({ product, loading }) => {
+      if (loading) return 'product loading...'
+      return (
+        <ProductTable product={product} />
+      )
+    }}
+  </ProductConsumer>
+</ProductProvider>
+```
+
+### 4. Sit back and relax
