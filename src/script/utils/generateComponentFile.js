@@ -4,7 +4,14 @@ import fs from 'fs'
 import path from 'path'
 import gql from 'graphql-tag'
 
-import { createComponentName, writeFile, createGraphqlQuery, generateFlowTypes } from './index'
+import {
+  createComponentName,
+  writeFile,
+  createGraphqlQuery,
+  generateFlowTypes,
+  getFullType,
+  buildArgsObject
+} from './index'
 
 import { OPERATION_TYPES } from '../constants'
 
@@ -14,6 +21,9 @@ export default function generateComponentFile(rootQuery, query: Query, outputDir
   const componentName = createComponentName(query)
   const args = query.args.map(arg => arg.name)
   const argList = args.join(', ')
+
+  const argObject = buildArgsObject()(query)
+
   const queryString = createGraphqlQuery(rootQuery, query, OPERATION_TYPES.QUERY)
 
   const filePath = path.join(outputDir, `./components/${componentName}.js`)
@@ -53,14 +63,17 @@ export default function generateComponentFile(rootQuery, query: Query, outputDir
 
     writeFile(filePath, content)
 
-    // append the component export to the index file so that apps that use the library can import components
-    // like import { Organization } from '@classy/react-classyql'
+    // append the component export to the index file so that apps that use the library
+    // can import components
     fs.appendFileSync(
       indexPath,
       `export { default as ${componentName} } from './components/${componentName}'\n`
     )
   } catch (err) {
     console.log(`Couldn't generate component ${componentName}:`, err.message) // eslint-disable-line no-console
-    fs.appendFileSync(errorLogPath, `Couldn't generate ${componentName}: ${err.message}\n`)
+    if (process.env.NODE_ENV !== 'debug') {
+      fs.appendFileSync(errorLogPath, `Couldn't generate ${componentName}: ${err.message}\n`)
+    }
   }
 }
+

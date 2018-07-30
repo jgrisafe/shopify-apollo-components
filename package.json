@@ -4,17 +4,18 @@
   "description": "Wrappers around the react-apollo query & mutation components for the shopify graphql api",
   "main": "dist/index.js",
   "scripts": {
-    "build": "yarn generate &&  yarn transpile && yarn flow-copy",
-    "generate": "yarn clean && BABEL_ENV=es5 babel src --ignore 'src/index' -d lib && yarn copy-index && node lib/script",
+    "build": "yarn generate && yarn transpile && yarn flow-copy",
+    "generate": "yarn run clean && BABEL_ENV=es5 babel src --ignore 'src/index' -d lib && yarn copy-index && node lib/script",
     "transpile": "yarn babelify && yarn flow-copy",
     "babelify": "./node_modules/.bin/rimraf dist && babel lib --ignore script/* -d dist",
     "flow-copy": "flow-copy-source -v -i 'script/**/*' lib dist",
     "babel-node": "BABEL_ENV=es5 babel src -d lib",
     "copy-index": "mkdir -p lib && cp src/index.js lib/",
-    "clean": "./node_modules/.bin/rimraf src/debug && ./node_modules/bin/rimraf lib && ./node_modules/bin/rimraf dist",
+    "clean": "node_modules/.bin/rimraf src/debug && ./node_modules/.bin/rimraf lib && ./node_modules/.bin/rimraf dist",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "basic-example": "yarn start -- --app product-by-handle",
-    "context-example": "yarn start -- --app use-with-context"
+    "context-example": "yarn start -- --app use-with-context",
+    "debug": "node_modules/.bin/rimraf src/debug"
   },
   "repository": {
     "type": "git",
