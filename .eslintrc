@@ -11,6 +11,7 @@
     "flowtype"
   ],
   "rules": {
+    "no-underscore-dangle": 0,
     "function-paren-newline": ["error", "consistent"],
     "comma-dangle": [0, "error"],
     "babel/no-invalid-this": 0,

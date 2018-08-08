@@ -4,6 +4,7 @@ import { getFullType } from './index'
 
 const argumentExtractor = () => {
   const argsObject = {}
+
   return function extract(query, fieldNameArray) {
     if (!(query && query.args && query.args.length)) {
       return
@@ -26,7 +27,7 @@ const argumentExtractor = () => {
   }
 }
 
-export default argumentExtractor
+export default argumentExtractor()
 
 function setDeep(obj = {}) {
   return function set(pathArray, value) {

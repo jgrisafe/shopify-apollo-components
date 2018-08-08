@@ -22,7 +22,7 @@ export default function generateComponentFile(rootQuery, query: Query, outputDir
   const args = query.args.map(arg => arg.name)
   const argList = args.join(', ')
 
-  const argObject = buildArgsObject()(query)
+  const argObject = buildArgsObject(query)
 
   const queryString = createGraphqlQuery(rootQuery, query, OPERATION_TYPES.QUERY)
 
