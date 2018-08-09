@@ -4,8 +4,7 @@
     "plugin:flowtype/recommended"
   ],
   "env": {
-    "jest": true,
-    "browser": true
+    "jest": true
   },
   "plugins": [
     "flowtype"
@@ -29,36 +28,7 @@
     "no-unexpected-multiline": 2,
     "no-use-before-define": ["error", { "functions": false }],
     "no-unused-vars": ["error", { "args": "none" }],
-    "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
-    "react/sort-comp": [
-      2,
-      {
-        "order": ["type-annotations", "static-methods", "lifecycle", "everything-else", "render"],
-        "groups": {
-          "lifecycle": [
-            "displayName",
-            "propTypes",
-            "defaultProps",
-            "contextTypes",
-            "childContextTypes",
-            "mixins",
-            "statics",
-            "state",
-            "constructor",
-            "getDefaultProps",
-            "getInitialState",
-            "getChildContext",
-            "componentWillMount",
-            "componentDidMount",
-            "componentWillReceiveProps",
-            "shouldComponentUpdate",
-            "componentWillUpdate",
-            "componentDidUpdate",
-            "componentWillUnmount"
-          ]
-        }
-      }
-    ]
+    "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }]
   },
   "globals": {
     "document": true,
