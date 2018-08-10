@@ -1,6 +1,6 @@
 // @flow
 
-import { getType, getTypeByName, generateFlowTypeTemplate, getFullType } from './index'
+import { getInnerType, getTypeByName, generateFlowTypeTemplate, getFullType } from './index'
 
 import type { Query } from '../flow-types/index'
 import { GQL_TYPE_KINDS } from '../constants'
@@ -9,7 +9,7 @@ export default function generateFlowTypes({ args }: Query) {
   return args
     .map(({ name, type }) => ({
       name,
-      type: getTypeByName(getType(type)) || type,
+      type: getTypeByName(getInnerType(type).name) || type,
       typeDefinition: getFullType(type)
     }))
     .filter(({ name, type }) => name && type)

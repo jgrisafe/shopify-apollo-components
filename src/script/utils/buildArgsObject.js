@@ -1,6 +1,7 @@
 // @flow
 
-import { getType, getTypeByName } from './index'
+import { getInnerType, getTypeByName, getFullType } from './index'
+import { GQL_TYPE_KINDS } from '../constants'
 
 const argumentExtractor = (query) => {
   // build the initial argument object from the args array of the base query
@@ -20,11 +21,29 @@ const argumentExtractor = (query) => {
   return { ...baseArgs, ...baseFieldArgs }
 }
 
-
 export default argumentExtractor
 
 function accumulateArgs(args) {
-  return args.reduce((accum, arg) => (
-    Object.assign(accum, { [arg.name]: getType(arg.type) })),
+  if (!args) return null
+  return args.reduce((accum, arg) => {
+    const innerType = getInnerType(arg.type)
+    const type = getTypeByName(innerType.name)
+    if (type.fields) {
+      console.log(type.name, type.fields) // eslint-disable-line no-console
+    }
+    switch (type.kind) {
+      case GQL_TYPE_KINDS.INPUT_OBJECT: {
+        return Object.assign(accum, { [type.name]: accumulateArgs(type.inputFields) })
+      }
+
+      case GQL_TYPE_KINDS.ENUM: {
+        return Object.assign(accum, { [type.name]: type.enumValues.map(value => value.name).join(' | ') })
+      }
+
+      default: {
+        return Object.assign(accum, { [arg.name]: getFullType(type) })
+      }
+    }
+  },
   {})
 }

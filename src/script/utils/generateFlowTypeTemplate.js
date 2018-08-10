@@ -1,7 +1,7 @@
 // @flow
 
 import { GQL_TYPE_KINDS } from '../constants'
-import { getType, getTypeByName, getFullType } from './index'
+import { getInnerType, getTypeByName, getFullType } from './index'
 
 const CACHED_TYPES = {}
 
@@ -14,7 +14,7 @@ export default function generateFlowTypeTemplate(mainType: Object) {
     return `{
           ${mainType.inputFields
             .map(({ name, type }) => {
-              const rootTypeName = getType(type)
+              const rootTypeName = getInnerType(type).name
               CACHED_TYPES[rootTypeName] = CACHED_TYPES[rootTypeName] || getTypeByName(rootTypeName)
               return {
                 name,

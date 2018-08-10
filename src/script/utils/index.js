@@ -1,6 +1,6 @@
 // @flow
 
-export { default as getType } from './getType'
+export { default as getInnerType } from './getInnerType'
 export { default as getTypeByName } from './getTypeByName'
 export { default as getFullType } from './getFullType'
 export { default as writeFile } from './writeFile'

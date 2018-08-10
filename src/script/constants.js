@@ -43,9 +43,12 @@ export const OPERATION_TYPES = {
 export const TYPES = data.__schema.types
 
 export const GQL_TYPE_KINDS = {
+  OBJECT: 'OBJECT',
   INPUT_OBJECT: 'INPUT_OBJECT',
   SCALAR: 'SCALAR',
   ENUM: 'ENUM',
   NON_NULL: 'NON_NULL',
-  LIST: 'LIST'
+  LIST: 'LIST',
+  INTERFACE: 'INTERFACE',
+  UNION: 'UNION'
 }

@@ -12,7 +12,7 @@
  * 2) https://graphql.org/learn/introspection/
  */
 import path from 'path'
-import { generateComponentFile, generateMutationFile, mapQueryToType } from './utils/index'
+import { generateComponentFile, mapQueryToType } from './utils/index'
 import { TYPES, OPERATION_TYPES } from './constants'
 
 export default function main(outputDir: string) {
