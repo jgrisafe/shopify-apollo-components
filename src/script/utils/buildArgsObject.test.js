@@ -26,17 +26,17 @@ describe('buildArgsObject', () => {
         last: 'Int',
         before: 'String',
         reverse: 'Boolean',
-        ProductImageSortKeys: 'CREATED_AT | POSITION | ID | RELEVANCE',
+        sortKey: 'CREATED_AT | POSITION | ID | RELEVANCE',
         maxWidth: 'Int',
         maxHeight: 'Int',
-        CropRegion: 'CENTER | TOP | BOTTOM | LEFT | RIGHT',
+        crop: 'CENTER | TOP | BOTTOM | LEFT | RIGHT',
         scale: 'Int'
       },
       options: {
         first: 'Int'
       },
       variantBySelectedOptions: {
-        SelectedOptionInput: {
+        selectedOptions: {
           name: 'String',
           value: 'String'
         }
@@ -47,7 +47,7 @@ describe('buildArgsObject', () => {
         last: 'Int',
         before: 'String',
         reverse: 'Boolean',
-        ProductVariantSortKeys: 'TITLE | SKU | POSITION | ID | RELEVANCE'
+        sortKey: 'TITLE | SKU | POSITION | ID | RELEVANCE'
       }
     }
 

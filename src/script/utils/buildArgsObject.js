@@ -33,11 +33,11 @@ function accumulateArgs(args) {
     }
     switch (type.kind) {
       case GQL_TYPE_KINDS.INPUT_OBJECT: {
-        return Object.assign(accum, { [type.name]: accumulateArgs(type.inputFields) })
+        return Object.assign(accum, { [arg.name]: accumulateArgs(type.inputFields) })
       }
 
       case GQL_TYPE_KINDS.ENUM: {
-        return Object.assign(accum, { [type.name]: type.enumValues.map(value => value.name).join(' | ') })
+        return Object.assign(accum, { [arg.name]: type.enumValues.map(value => value.name).join(' | ') })
       }
 
       default: {
