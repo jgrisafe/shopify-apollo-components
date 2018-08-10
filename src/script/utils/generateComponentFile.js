@@ -9,7 +9,6 @@ import {
   writeFile,
   createGraphqlQuery,
   generateFlowTypes,
-  getFullType,
   buildArgsObject
 } from './index'
 
@@ -22,7 +21,8 @@ export default function generateComponentFile(rootQuery, query: Query, outputDir
   const args = query.args.map(arg => arg.name)
   const argList = args.join(', ')
 
-  const argObject = buildArgsObject(query)
+  const argsObject = buildArgsObject(query)
+  console.log(argsObject) // eslint-disable-line no-console
 
   const queryString = createGraphqlQuery(rootQuery, query, OPERATION_TYPES.QUERY)
 

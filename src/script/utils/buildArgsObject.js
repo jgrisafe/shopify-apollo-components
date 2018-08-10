@@ -28,9 +28,6 @@ function accumulateArgs(args) {
   return args.reduce((accum, arg) => {
     const innerType = getInnerType(arg.type)
     const type = getTypeByName(innerType.name)
-    if (type.fields) {
-      console.log(type.name, type.fields) // eslint-disable-line no-console
-    }
     switch (type.kind) {
       case GQL_TYPE_KINDS.INPUT_OBJECT: {
         return Object.assign(accum, { [type.name]: accumulateArgs(type.inputFields) })
