@@ -30,8 +30,8 @@ if (!root) throw new Error('React root element not found.')
 ReactDOM.render(
   <Router>
     <RootProvider
-      uri="https://vape-allegiance.myshopify.com/api/graphql"
-      accessToken="375d3adfc86edf78ab66f8900da074d5"
+      uri="https://your-store.myshopify.com/api/graphql"
+      accessToken="xxxxxxx"
     >
       {/* your app here */}
     </RootProvider>
